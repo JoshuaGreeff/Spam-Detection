@@ -1,0 +1,60 @@
+name: Clean Colab Widget Metadata
+
+on:
+  push:
+    paths:
+      - '**/*.ipynb'
+  workflow_dispatch:
+
+jobs:
+  clean-widgets:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install nbformat
+
+      - name: Remove widget metadata from notebooks
+        run: |
+          python -c "
+import os, nbformat
+
+def clean_widgets(path):
+    with open(path, 'r', encoding='utf-8') as f:
+        nb = nbformat.read(f, as_version=4)
+    if 'widgets' in nb['metadata']:
+        del nb['metadata']['widgets']
+        with open(path, 'w', encoding='utf-8') as f:
+            nbformat.write(nb, f)
+        return True
+    return False
+
+changed = False
+for root, _, files in os.walk('.'):
+    for file in files:
+        if file.endswith('.ipynb'):
+            path = os.path.join(root, file)
+            if clean_widgets(path):
+                print(f'Cleaned: {path}')
+                changed = True
+
+if not changed:
+    print('No widgets metadata found.')
+          "
+
+      - name: Commit changes
+        if: success()
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add '**/*.ipynb'
+          git diff --cached --quiet || git commit -m "Remove widget metadata from notebooks"
+          git push
