@@ -52,10 +52,12 @@ jobs:
           EOF
 
       - name: Commit changes
-        if: success()
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          # Use find to add all ipynb files recursively
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Update remote to use the provided GITHUB_TOKEN for authentication
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          # Recursively add notebooks
           find . -type f -name "*.ipynb" -exec git add {} +
-          git diff --cached --quiet || (git commit -m "Remove widget metadata from notebooks" && git push)
+          # Commit and push changes if there are any
+          git diff --cached --quiet || (git commit -m "Remove widget metadata from notebooks" && git push origin HEAD:${{ github.ref }})
