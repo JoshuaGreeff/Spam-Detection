@@ -56,6 +56,6 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add '**/*.ipynb'
-          git diff --cached --quiet || git commit -m "Remove widget metadata from notebooks"
-          git push
+          # Use find to add all ipynb files recursively
+          find . -type f -name "*.ipynb" -exec git add {} +
+          git diff --cached --quiet || (git commit -m "Remove widget metadata from notebooks" && git push)
