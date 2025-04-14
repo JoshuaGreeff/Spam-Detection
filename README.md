@@ -210,10 +210,9 @@ trainer.train()
 
 For full code details, please see the notebooks included:
 
-- [`Traditional NLP U599.ipynb`](notebooks/Traditional%20NLP%20U599.ipynb)  
+- [`Traditional NLP U599.ipynb`](Traditional_NLP_U599.ipynb)  
   Traditional machine learning approach using TF-IDF and classical classifiers.
-
-- [`Transformer-based NLP U599.ipynb`](notebooks/Transformer-based%20NLP%20U599.ipynb)  
+- [`Transformer-based NLP U599.ipynb`](Transformer_based_NLP_U599.ipynb)  
   Modern approach using DistilBERT for email classification.
 
 ---
@@ -238,7 +237,7 @@ For full code details, please see the notebooks included:
 
 ## License
 
-This project is licensed under the MIT License.  
+This project is licensed.  
 See the [LICENSE](LICENSE) file for more details.
 
 ---
