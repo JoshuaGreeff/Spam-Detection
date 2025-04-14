@@ -130,7 +130,7 @@ Exported models are tested with ONNX Runtime to ensure consistency with the orig
 
 ---
 
-## 📄 Results
+## Results
 
 | Model                         | F1 Score (Approx.) | Training Time (s) | Prediction Time (s) |
 |-------------------------------|--------------------|-------------------|---------------------|
@@ -206,7 +206,7 @@ trainer.train()
 
 ---
 
-## 📓 Notebooks
+## Notebooks
 
 For full code details, please see the notebooks included:
 
@@ -218,7 +218,7 @@ For full code details, please see the notebooks included:
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```bash
 ├── README.md
@@ -236,14 +236,14 @@ For full code details, please see the notebooks included:
 
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the MIT License.  
 See the [LICENSE](LICENSE) file for more details.
 
 ---
 
-## 🙏 Acknowledgements
+## Acknowledgements
 
 Thanks to the [subhajournal/phishingemails](https://www.kaggle.com/datasets/subhajournal/phishingemails) dataset for supporting this project.
 
