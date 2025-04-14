@@ -1,6 +1,6 @@
 # Spam Detection
 
-A dual-method approach for spam/phishing email detection using both modern transformer-based models and traditional machine learning techniques. This project demonstrates how to process raw email data, train models, and deploy them in ONNX format.
+This project was my final project for Computer Science Senior Seminar @ USC Upstate. This project's goal was to compare modern transformer-based models and traditional machine learning techniques for spam/phishing email detection (and NLP tasks in general).
 
 ---
 
