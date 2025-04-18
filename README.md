@@ -217,24 +217,6 @@ For full code details, please see the notebooks included:
 
 ---
 
-## Project Structure
-
-```bash
-├── README.md
-├── .github
-│   └── workflows
-│       └── clean_widgets.yml               # GitHub Actions workflow for cleaning notebook metadata
-├── notebooks
-│   ├── Traditional NLP U599.ipynb          # Traditional ML approach notebook
-│   └── Transformer-based NLP U599.ipynb    # Transformer-based approach notebook
-├── onnx_models
-│   └── random_forest_model.onnx            # Exported ONNX model for traditional ML
-└── onnx_utils
-    └── vectorizer.pkl                      # TF-IDF vectorizer for traditional ML
-```
-
----
-
 ## License
 
 This project is licensed.  
